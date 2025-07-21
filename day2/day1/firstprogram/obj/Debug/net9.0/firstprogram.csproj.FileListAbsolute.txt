@@ -1,0 +1,5 @@
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\firstprogram\obj\Debug\net9.0\firstprogram.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\firstprogram\obj\Debug\net9.0\firstprogram.AssemblyInfoInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\firstprogram\obj\Debug\net9.0\firstprogram.AssemblyInfo.cs
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\firstprogram\obj\Debug\net9.0\firstprogram.csproj.CoreCompileInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\firstprogram\obj\Debug\net9.0\firstprogram.sourcelink.json
