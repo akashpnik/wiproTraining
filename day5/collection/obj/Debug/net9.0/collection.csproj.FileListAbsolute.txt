@@ -1,0 +1,15 @@
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\bin\Debug\net9.0\collection.exe
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\bin\Debug\net9.0\collection.deps.json
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\bin\Debug\net9.0\collection.runtimeconfig.json
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\bin\Debug\net9.0\collection.dll
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\bin\Debug\net9.0\collection.pdb
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.AssemblyInfoInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.AssemblyInfo.cs
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.csproj.CoreCompileInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.sourcelink.json
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.dll
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\refint\collection.dll
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.pdb
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\collection.genruntimeconfig.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day5\collection\obj\Debug\net9.0\ref\collection.dll

@@ -1,0 +1,14 @@
+D:\wipro\day4\jaggedarray\bin\Debug\net9.0\jaggedarray.exe
+D:\wipro\day4\jaggedarray\bin\Debug\net9.0\jaggedarray.deps.json
+D:\wipro\day4\jaggedarray\bin\Debug\net9.0\jaggedarray.runtimeconfig.json
+D:\wipro\day4\jaggedarray\bin\Debug\net9.0\jaggedarray.dll
+D:\wipro\day4\jaggedarray\bin\Debug\net9.0\jaggedarray.pdb
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\jaggedarray.GeneratedMSBuildEditorConfig.editorconfig
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\jaggedarray.AssemblyInfoInputs.cache
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\jaggedarray.AssemblyInfo.cs
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\jaggedarray.csproj.CoreCompileInputs.cache
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\jaggedarray.dll
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\refint\jaggedarray.dll
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\jaggedarray.pdb
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\jaggedarray.genruntimeconfig.cache
+D:\wipro\day4\jaggedarray\obj\Debug\net9.0\ref\jaggedarray.dll

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "+A9cbyHR0Nk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\akash\\OneDrive\\Documents\\my-daily-programs\\day1\\firstprogram\\firstprogram.csproj",
+=======
+  "dgSpecHash": "N/4eHrs8qq4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Niti Dwivedi\\Documents\\wiprotraining\\day4\\day4.csproj",
+>>>>>>> fb3394c (Add day4 folder with initial files)
+  "expectedPackageFiles": [],
+  "logs": []
+}

@@ -1,0 +1,105 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net9.0": []
+  },
+  "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\akash\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\Niti Dwivedi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> fb3394c (Add day4 folder with initial files)
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\akash\\OneDrive\\Documents\\my-daily-programs\\day1\\firstprogram\\firstprogram.csproj",
+      "projectName": "firstprogram",
+      "projectPath": "C:\\Users\\akash\\OneDrive\\Documents\\my-daily-programs\\day1\\firstprogram\\firstprogram.csproj",
+      "packagesPath": "C:\\Users\\akash\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\akash\\OneDrive\\Documents\\my-daily-programs\\day1\\firstprogram\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\akash\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+      "projectUniqueName": "C:\\Users\\Niti Dwivedi\\Documents\\wiprotraining\\day4\\day4.csproj",
+      "projectName": "day4",
+      "projectPath": "C:\\Users\\Niti Dwivedi\\Documents\\wiprotraining\\day4\\day4.csproj",
+      "packagesPath": "C:\\Users\\Niti Dwivedi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Niti Dwivedi\\Documents\\wiprotraining\\day4\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Niti Dwivedi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> fb3394c (Add day4 folder with initial files)
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+<<<<<<< HEAD
+=======
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+>>>>>>> fb3394c (Add day4 folder with initial files)
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+<<<<<<< HEAD
+      "SdkAnalysisLevel": "9.0.300"
+=======
+      "SdkAnalysisLevel": "9.0.200"
+>>>>>>> fb3394c (Add day4 folder with initial files)
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+<<<<<<< HEAD
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.303/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+>>>>>>> fb3394c (Add day4 folder with initial files)
+      }
+    }
+  }
+}

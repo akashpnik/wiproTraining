@@ -1,0 +1,14 @@
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\bin\Debug\net9.0\calculator.exe
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\bin\Debug\net9.0\calculator.deps.json
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\bin\Debug\net9.0\calculator.runtimeconfig.json
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\bin\Debug\net9.0\calculator.dll
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\bin\Debug\net9.0\calculator.pdb
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\calculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\calculator.AssemblyInfoInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\calculator.AssemblyInfo.cs
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\calculator.csproj.CoreCompileInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\calculator.dll
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\refint\calculator.dll
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\calculator.pdb
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\calculator.genruntimeconfig.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day1\calculator\obj\Debug\net9.0\ref\calculator.dll
