@@ -1,0 +1,15 @@
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\bin\Debug\net9.0\delegatequestion.exe
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\bin\Debug\net9.0\delegatequestion.deps.json
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\bin\Debug\net9.0\delegatequestion.runtimeconfig.json
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\bin\Debug\net9.0\delegatequestion.dll
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\bin\Debug\net9.0\delegatequestion.pdb
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.AssemblyInfoInputs.cache
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.AssemblyInfo.cs
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.csproj.CoreCompileInputs.cache
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.sourcelink.json
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.dll
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\refint\delegatequestion.dll
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.pdb
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\delegatequestion.genruntimeconfig.cache
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\delegatequestion\obj\Debug\net9.0\ref\delegatequestion.dll

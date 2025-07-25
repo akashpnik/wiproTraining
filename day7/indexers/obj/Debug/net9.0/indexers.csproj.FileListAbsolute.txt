@@ -1,0 +1,15 @@
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\bin\Debug\net9.0\indexers.exe
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\bin\Debug\net9.0\indexers.deps.json
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\bin\Debug\net9.0\indexers.runtimeconfig.json
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\bin\Debug\net9.0\indexers.dll
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\bin\Debug\net9.0\indexers.pdb
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.AssemblyInfoInputs.cache
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.AssemblyInfo.cs
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.csproj.CoreCompileInputs.cache
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.sourcelink.json
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.dll
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\refint\indexers.dll
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.pdb
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\indexers.genruntimeconfig.cache
+C:\Users\akash\OneDrive\Documents\wiprotraing\day7\indexers\obj\Debug\net9.0\ref\indexers.dll
