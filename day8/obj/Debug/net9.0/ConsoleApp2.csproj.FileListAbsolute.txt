@@ -1,0 +1,5 @@
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day8\obj\Debug\net9.0\ConsoleApp2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day8\obj\Debug\net9.0\ConsoleApp2.AssemblyInfoInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day8\obj\Debug\net9.0\ConsoleApp2.AssemblyInfo.cs
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day8\obj\Debug\net9.0\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\akash\OneDrive\Documents\my-daily-programs\day8\obj\Debug\net9.0\ConsoleApp2.sourcelink.json
