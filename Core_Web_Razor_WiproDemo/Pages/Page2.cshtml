@@ -1,0 +1,98 @@
+﻿@page
+@model Core_Web_Razor_WiproDemo.Pages.Page2Model
+@{
+}
+<h1>Razor syntax demo</h1>
+@* <h1> inline expression demo </h1>
+
+<h2>Today's date is : @DateTime.Now.ToShortDateString()</h2>
+
+<hr />
+<h1> Multiline expressions</h1>
+@{
+    var date = DateTime.Now.ToShortDateString();
+    var message = "Hello World wipro team 2025";
+}
+
+<h2>Today's date is: @date </h2>
+<h3>@message</h3>
+
+<hr />
+<h1> Display text from code block </h1>
+@{
+    var date1 = DateTime.Now.ToShortDateString();
+    string message1 = "Hello World!";
+    @:Today's date is: @date1
+    <br />
+    @message1
+}
+
+
+@{
+    var date2 = DateTime.Now.ToShortDateString();
+    string message2 = "Hello World!";
+    <text>Today's date is:</text> @date2
+    <br />
+    @message2
+}
+
+<h1> if , switch, loops </h1>
+@{
+    var x = 10;
+    if (x==10)
+    {
+       <h1>x value is 10</h1>
+    }
+    else
+    {
+        <h1>x value is not 10 </h1>
+    }
+
+    int day = 1;
+
+    switch(day)
+    {
+        case 1:
+            <h1>Today is Monday</h1>;
+            break;
+        case 2:
+            <h1>Today is Tuesday</h1>;
+            break;
+        case 3:
+            <h1>Today is Wednesday</h1>;
+            break;
+        default:
+            <h1>Today is not Monday, Tuesday or Wednesday</h1>;
+            break;
+    }
+ 
+ @*----------------------------till here it is commented -----------------
+ @{
+    for (int i = 1; i <= 5; i++)
+    {
+        <h2>Value of i is: @i \t</h2>
+    }
+
+    var j = 10;
+    while (j<20)
+    {
+        <p>Value of j is: @j</p>
+        <p>Wipro</p>
+    }
+    
+}
+ *@
+
+@* Arrays *@
+
+
+@{
+    string[] names = { "John", "Jane", "Doe" };
+    <h2>Names in the array:</h2>
+    <ul>
+        @foreach (var name in names)
+        {
+            <li>@name</li>
+        }
+    </ul>
+}

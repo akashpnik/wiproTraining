@@ -1,0 +1,29 @@
+﻿@page
+@model Core_Web_Razor_WiproDemo.Pages.EmpPageModel
+
+<h2>Contact Us</h2>
+
+<form method="post">
+    <label asp-for="Id"></label>
+    <input asp-for="Id" />
+    <br />
+
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <br />
+
+    <label asp-for="phone"></label>
+    <textarea asp-for="phone"></textarea>
+    <br />
+
+    <label asp-for="Message"></label>
+    <textarea asp-for="Message"></textarea>
+    <br />
+
+    <button type="submit">Send</button>
+</form>
+
+@if (Model.Message != null)
+{
+    <p>@Model.Message</p>
+}
