@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Registration Form</h2>
+
+<form action="welcome.html">
+
+  <label>ID:</label>
+  <input type="text" required><br><br>
+
+  <label>First Name:</label>
+  <input type="text" required><br><br>
+
+  <label>Last Name:</label>
+  <input type="text" required><br><br>
+
+  <label>Gender:</label>
+  <input type="radio" name="gender" required> Male
+  <input type="radio" name="gender"> Female<br><br>
+
+  <label>Hobbies:</label>
+  <input type="checkbox"> Reading
+  <input type="checkbox"> Music<br><br>
+
+  <label>City:</label>
+  <input type="text" required><br><br>
+
+  <!-- Age (Range) -->
+  <label for="age">Age (18-100):</label>
+  <input type="number" id="age" name="age" min="18" max="100" required /><br><br>
+
+<!-- Password (Min Length) -->
+  <label for="password">Password (min 6 characters):</label>
+  <input type="password" id="password" name="password" minlength="6" required />
+
+   <!-- Confirm Password (Pattern match) -->
+  <label for="confirm">Confirm Password:</label>
+  <input type="password" id="confirm" name="confirm" pattern=".{6,}" required 
+         title="Must match password length" /><br><br>
+
+    <!-- Phone (Pattern) -->
+  <label for="phone">Phone (10 digits):</label>
+  <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required 
+         title="Enter 10-digit phone number" /><br><br>
+
+
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required /><br><br>
+
+
+  <label>Address:</label><br>
+  <textarea required></textarea><br><br>
+  <hr>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>

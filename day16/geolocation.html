@@ -1,0 +1,66 @@
+<!--HTML5 Geolocation
+HTML5 Geolocation allows web applications to access the geographical location of a user. It’s commonly used for mapping services, local recommendations, and location-based personalization. The API is accessed through JavaScript and requires user permission for privacy reasons.
+
+🌐 How It Works
+
+Uses navigator.geolocation object
+
+Main methods:
+
+getCurrentPosition() – gets current location
+
+watchPosition() – tracks location changes
+
+clearWatch() – stops tracking
+check : https://www.gps-coordinates.net/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 Geolocation Example</title>
+</head>
+<body>
+
+  <h2>Find My Location</h2>
+  <button onclick="getLocation()">Get Location</button>
+  <p id="output"></p>
+
+  <script>
+    const output = document.getElementById("output");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        output.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+  output.innerHTML =
+    "Latitude: " + position.coords.latitude + "<br>" +
+    "Longitude: " + position.coords.longitude;
+}
+
+function showError(error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      output.innerHTML = "User denied the request for Geolocation.";
+      break;
+    case error.POSITION_UNAVAILABLE:
+      output.innerHTML = "Location information is unavailable.";
+      break;
+    case error.TIMEOUT:
+      output.innerHTML = "The request to get user location timed out.";
+      break;
+    case error.UNKNOWN_ERROR:
+      output.innerHTML = "An unknown error occurred.";
+      break;
+  }
+}
+</script>
+</body>
+</html>
