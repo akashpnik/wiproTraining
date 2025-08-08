@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const add = (a,b) => a + b;
+        console.log(add(10,2));
+        const sub = (a,b) => a+b;
+        console.log(sub(10,2));
+        const mul = (a,b) => a*b;
+        console.log(mul(10,2));
+        const modu = (a,b) => a % b;
+        console.log(modu(10,2));
+
+        console.log("Addition result : "+ add(3,4));
+        console.log("Substraction result is: " +sub(4,5));
+        console.log("Multiplication result is: "+ mul(2,2));
+
+        //without parameters
+        const greet =() => "Hello!";
+        
+        //E6 feature - templete literal
+        const name ="Akash !!! Nice to meet you:) ";
+        console.log(`Hello, ${name}    !`);
+        
+        //for of loop
+        const fruits = ["apple","banana","melon","kiwi","chiku"];
+        for (const fruit of fruits){
+            console.log(fruit);
+        }
+
+
+        //classess in Es6
+        class Animal
+        {
+            speak()
+            {
+                console.log("The animal can make sound");
+            }
+        }
+
+        const dog = new Animal();
+        dog.speak();
+
+        //maps in Es6
+        const map = new Map();
+        map.set("a",1);
+        const set = new Set([1,2,3]); //unique values
+        
+    </script>
+</body>
+</html>
