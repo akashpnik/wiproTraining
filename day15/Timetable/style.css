@@ -1,0 +1,80 @@
+/* General Body Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Header Styles */
+.header {
+    background-color: #343a40; /* Dark background */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Menu Navigation Styles */
+.menu {
+    display: flex;
+    gap: 0.5rem; /* Space between buttons */
+    flex-wrap: wrap;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1; /* Allows the main content to grow and fill available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+}
+
+/* Container Styles for Login and Timetable */
+.login-container, .timetable-container {
+    width: 100%;
+    max-width: 800px; /* Max width for larger screens */
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack header items vertically */
+        text-align: center;
+    }
+
+    .menu {
+        margin-top: 1rem;
+        justify-content: center; /* Center menu buttons */
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    .login-container, .timetable-container {
+        padding: 1.5rem;
+    }
+}
