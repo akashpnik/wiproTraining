@@ -1,0 +1,44 @@
+<p>product-details works!</p>
+<div class="product-details" *ngIf="product">
+  <h3>Product Details</h3>
+  
+  <div class="detail-item">
+    <strong>Name:</strong> {{ product.name }}
+  </div>
+  
+  <div class="detail-item">
+    <strong>Price:</strong> Rs.{{ product.price }}
+  </div>
+  
+  <div class="detail-item">
+    <strong>ID:</strong> {{ product.id }}
+  </div>
+
+  <div class="feedback-form">
+    <h4>Provide Feedback</h4>
+    
+    <div class="rating">
+      <strong>Rating:</strong>
+      <span 
+        *ngFor="let star of [1,2,3,4,5]" 
+        (click)="onRate(star)"
+        [class.active]="star <= rating">
+        ★
+      </span>
+    </div>
+    
+    <div class="comment">
+      <label for="comment">Comment:</label>
+      <textarea 
+        id="comment" 
+        [(ngModel)]="comment" 
+        rows="3" 
+        placeholder="Enter your feedback here...">
+      </textarea>
+    </div>
+    
+    <button (click)="onSubmitFeedback()" [disabled]="rating === 0">
+      Submit Feedback
+    </button>
+  </div>
+</div>
