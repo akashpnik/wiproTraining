@@ -1,0 +1,8 @@
+<p>parentcomponent works!</p>
+
+<app-childcomponent [userData]="user">
+</app-childcomponent>
+<p>User Name : {{user.name }}</p>
+<p>User Age: {{user.age}}</p>
+
+<app-childcomponent (notifyParent)="recieveNotification($event)"></app-childcomponent>

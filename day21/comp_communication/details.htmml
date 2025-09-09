@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+</head>
+<body>
+    <h1>Selected Product</h1>
+    <p id="item"></p>
+    <label>Quantity:
+        <input type="number" id="qty" value="1" min="1" onchange="updatePrice()">
+    </label>
+    <p id="price"></p>
+    <p id="total"></p>
+    <button onclick="goBilling()">Go to Billing</button>
+
+    <script>
+        let name = localStorage.getItem("productName");
+        let price = parseInt(localStorage.getItem("productPrice"));
+        let qty = 1;
+
+        document.getElementById("item").textContent = "Selected item: " + name;
+        document.getElementById("price").textContent = "Price per unit: " + price;
+        updatePrice();
+
+        function updatePrice() {
+            qty = parseInt(document.getElementById("qty").value);
+            document.getElementById("total").textContent = "Total Price: " + (price * qty);
+            localStorage.setItem("productQty", qty);
+        }
+
+        function goBilling() {
+            window.location.href = "billing.html";
+        }
+    </script>
+</body>
+</html>
