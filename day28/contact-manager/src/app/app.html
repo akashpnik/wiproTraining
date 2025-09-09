@@ -1,0 +1,55 @@
+<main class="container">
+  <h1>Contact Manager</h1>
+
+  @if (message) {
+    <div class="message">{{ message }}</div>
+  }
+
+  <div class="form-container">
+    @if (!selectedContact) {
+      <div class="card">
+        <h2>Add New Contact</h2>
+        <form (ngSubmit)="onAddContact()">
+          <input [(ngModel)]="newContact.name" name="name" placeholder="Name" required>
+          <input [(ngModel)]="newContact.email" name="email" type="email" placeholder="Email" required>
+          <input [(ngModel)]="newContact.phone" name="phone" placeholder="Phone" required>
+          <button type="submit">Add Contact</button>
+        </form>
+      </div>
+    }
+
+    @if (selectedContact) {
+      <div class="card edit-card">
+        <h2>Edit Contact: {{ selectedContact.name }}</h2>
+        <form (ngSubmit)="onUpdateContact()">
+          <input [(ngModel)]="selectedContact.name" name="edit-name" placeholder="Name" required>
+          <input [(ngModel)]="selectedContact.email" name="edit-email" type="email" placeholder="Email" required>
+          <input [(ngModel)]="selectedContact.phone" name="edit-phone" placeholder="Phone" required>
+          <div class="button-group">
+            <button type="submit">Update Contact</button>
+            <button type="button" class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    }
+  </div>
+
+  <hr>
+  <h2>My Contacts</h2>
+  <div class="contact-list">
+    @for (contact of contacts; track contact.id) {
+      <div class="contact-item">
+        <div class="contact-info">
+          <strong>{{ contact.name }}</strong>
+          <small>{{ contact.email }} | {{ contact.phone }}</small>
+        </div>
+        <div class="contact-actions">
+          <button (click)="selectForEdit(contact)">Edit</button>
+          <button class="delete-btn" (click)="onDeleteContact(contact.id)">Delete</button>
+        </div>
+      </div>
+    } @empty {
+      <p>No contacts found. Add one above!</p>
+    }
+  </div>
+</main>
