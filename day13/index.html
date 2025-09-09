@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+        }
+        #app-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-bottom: 1.5rem;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #user-info {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #user-info.visible {
+            opacity: 1;
+        }
+        img {
+            border-radius: 50%;
+            border: 4px solid #ddd;
+            width: 128px;
+            height: 128px;
+        }
+        h2 {
+            margin: 1rem 0 0.5rem 0;
+            color: #007bff;
+        }
+        p {
+            margin: 0.25rem 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app-container">
+        <h1>Random User Generator</h1>
+        <button id="fetch-user-btn">Get New User 🧑</button>
+        <div id="user-info">
+            </div>
+    </div>
+
+    <script>
+        // Get references to the button and the div where user info will be displayed
+        const fetchButton = document.getElementById('fetch-user-btn');
+        const userInfoDiv = document.getElementById('user-info');
+
+        // Define the asynchronous function to fetch and display user data
+        const getUser = async () => {
+            const apiUrl = 'https://randomuser.me/api/';
+
+            try {
+                // Use fetch to make a request to the API
+                const response = await fetch(apiUrl);
+
+                // Check if the response is successful
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+
+                // Parse the JSON data from the response
+                const data = await response.json();
+                
+                // The API returns results in an array, so we get the first user
+                const user = data.results[0];
+                
+                // Call the function to display the user data
+                displayUser(user);
+
+            } catch (error) {
+                // If an error occurs, log it to the console and show an error message
+                console.error('Fetch error:', error);
+                userInfoDiv.innerHTML = `<p style="color: red;">Sorry, couldn't load a user. Please try again.</p>`;
+                userInfoDiv.classList.add('visible');
+            }
+        };
+
+        // Function to render the user data into the HTML
+        const displayUser = (user) => {
+            // Construct the HTML content using the fetched user data
+            const userHtml = `
+                <img src="${user.picture.large}" alt="Profile picture of ${user.name.first}">
+                <h2>${user.name.title} ${user.name.first} ${user.name.last}</h2>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Location:</strong> ${user.location.city}, ${user.location.country}</p>
+            `;
+            
+            // Set the inner HTML of our container div to the newly created content
+            userInfoDiv.innerHTML = userHtml;
+            // Add a 'visible' class to fade in the new content
+            userInfoDiv.classList.add('visible');
+        };
+
+        // Add a click event listener to the button to call the getUser function
+        fetchButton.addEventListener('click', getUser);
+    </script>
+
+</body>
+</html>
