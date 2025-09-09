@@ -1,0 +1,35 @@
+﻿@model SecureShop.Models.Product
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h2>@Model.Name</h2>
+<p><strong>Price:</strong> @Model.Price.ToString("C")</p>
+<p><strong>Description:</strong> @Model.Description</p>
+
+<hr />
+
+<h3>Reviews</h3>
+@if (Model.Reviews != null && Model.Reviews.Any())
+{
+    <ul>
+        @foreach (var r in Model.Reviews)
+        {
+            <li>@Html.Encode(r.Content) - Rating: @r.Rating ★ (by @r.AuthorName)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No reviews yet.</p>
+}
+
+<hr />
+
+<a class="btn btn-success" href="/Orders/Checkout?productId=@Model.Id">Buy Now</a>
+
+@if (User.IsInRole("Admin"))
+{
+    <a class="btn btn-warning" href="/Products/Edit/@Model.Id">Edit</a>
+}
+<a class="btn btn-secondary" href="/Products/Index">Back to Products</a>
