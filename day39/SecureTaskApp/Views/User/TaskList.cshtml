@@ -1,0 +1,57 @@
+@model IEnumerable<SecureTaskApp.Data.TaskItem>
+@{
+    ViewData["Title"] = "My Tasks";
+}
+<h2>My Tasks</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="Create" method="post" class="mb-4">
+    @Html.AntiForgeryToken()
+    <div class="row g-2">
+        <div class="col-md-3">
+            <input name="title" class="form-control" placeholder="Title" />
+        </div>
+        <div class="col-md-5">
+            <input name="description" class="form-control" placeholder="Description" />
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" type="submit">Add</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>Id</th><th>Title</th><th>Description</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var t in Model)
+    {
+        <tr>
+            <td>@t.Id</td>
+            <td>@t.Title</td>
+            <td>@t.Description</td>
+            <td>
+                <form asp-action="Edit" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@t.Id" />
+                    <input type="text" name="title" value="@t.Title" class="form-control d-inline w-auto" />
+                    <input type="text" name="description" value="@t.Description" class="form-control d-inline w-auto" />
+                    <button class="btn btn-sm btn-warning" type="submit">Save</button>
+                </form>
+
+                <form asp-action="Delete" method="post" class="d-inline ms-2">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@t.Id" />
+                    <button class="btn btn-sm btn-danger" type="submit"
+                            onclick="return confirm('Delete this task?');">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

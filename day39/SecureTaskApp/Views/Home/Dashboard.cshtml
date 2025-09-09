@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<h2>Dashboard</h2>
+
+<p>Welcome, @User.Identity?.Name!</p>
+
+@if (User.IsInRole("Admin"))
+{
+    <p><a class="btn btn-warning" asp-controller="Admin" asp-action="ManageTasks">Go to Admin Task Manager</a></p>
+}
+@if (User.IsInRole("User"))
+{
+    <p><a class="btn btn-info" asp-controller="User" asp-action="TaskList">Go to My Tasks</a></p>
+}
