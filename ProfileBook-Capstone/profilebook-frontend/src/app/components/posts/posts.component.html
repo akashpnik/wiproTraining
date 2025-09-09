@@ -1,0 +1,101 @@
+<div class="posts-container">
+  <div class="posts-header">
+    <h2>📱 ProfileBook Feed</h2>
+    <button class="refresh-btn" (click)="refreshPosts()" [disabled]="isLoading">
+      <i class="fas fa-sync-alt"></i> Refresh
+    </button>
+  </div>
+   
+<app-create-post (postCreated)="onPostCreated()"></app-create-post>
+
+ <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading posts...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage" class="error-state">
+    <p>{{ errorMessage }}</p>
+    <button (click)="refreshPosts()">Try Again</button>
+  </div>
+
+  <!-- Posts Feed -->
+  <div *ngIf="!isLoading && !errorMessage" class="posts-feed">
+    <!-- Debug Info -->
+    <div class="debug-info">
+      <p>Posts loaded: {{ posts.length }}</p>
+    </div>
+
+    <!-- No Posts State -->
+    <div *ngIf="posts.length === 0" class="empty-state">
+      <h3>📭 No posts yet</h3>
+      <p>Be the first to share something! (Or check if your backend has post data)</p>
+    </div>
+
+    <!-- Posts List -->
+    <div *ngFor="let post of posts" class="post-card">
+  <!-- Post Header -->
+  <div class="post-header">
+    <div class="user-info">
+      <!-- ✅ FIXED: Use flat properties from API -->
+      <img [src]="getUserProfileImage(post)" 
+           alt="Profile" 
+           class="user-avatar"
+           (error)="onImageError($event)">
+      <div class="user-details">
+        <!-- ✅ Use available username, or try to get names from user object if it exists -->
+        <h4>@{{ post.username || 'user' }}</h4>
+        <span class="post-date">{{ post.createdAt | date:'medium' }}</span>
+      </div>
+    </div>
+  </div>
+
+      <!-- Post Content -->
+       <div class="post-content">
+    <p>{{ post.content || 'No content available' }}</p>
+    
+    <!-- ✅ FIXED: Post Image with proper URL -->
+    <img *ngIf="post.postImage" 
+         [src]="getPostImage(post)" 
+         alt="Post image" 
+         class="post-image"
+         (error)="onImageError($event)">
+  </div>
+
+      <!-- ✅ UPDATED: Interactive Post Actions -->
+  <div class="post-actions">
+    <!-- Like Button -->
+    <button class="action-btn like-btn" 
+            [class.liked]="post.isLikedByCurrentUser"
+            (click)="toggleLike(post)"
+            [disabled]="post.isLiking">
+      <i class="fas fa-heart"></i>
+      <span>{{ post.likesCount || 0 }}</span>
+      <span class="action-text">{{ post.isLikedByCurrentUser ? 'Liked' : 'Like' }}</span>
+    </button>
+
+<!-- Comment Button -->
+    <button class="action-btn comment-btn" (click)="toggleComments(post)">
+      <i class="fas fa-comment"></i>
+      <span>{{ post.commentsCount || 0 }}</span>
+      <span class="action-text">Comment</span>
+    </button>
+
+    <!-- Share Button (placeholder) -->
+    <button class="action-btn share-btn">
+      <i class="fas fa-share"></i>
+      <span class="action-text">Share</span>
+    </button>
+  </div>
+
+  <!-- ✅ UPDATED: Real Comments Section -->
+<div *ngIf="post.showComments" class="comments-section">
+  <app-comment 
+    [postId]="post.postId" 
+    [initialCommentsCount]="post.commentsCount"
+    (commentsCountChanged)="onCommentsCountChanged(post, $event)">
+  </app-comment>
+</div>
+
+</div>

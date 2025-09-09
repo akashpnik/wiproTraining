@@ -1,0 +1,91 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+header h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.connection-test {
+  margin: 20px 0;
+}
+
+.status-card {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  background: #f9f9f9;
+}
+
+.status-card.success {
+  border-color: #28a745;
+  background: #d4edda;
+}
+
+.status-card.error {
+  border-color: #dc3545;
+  background: #f8d7da;
+}
+
+.status-text {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.retry-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.retry-btn:hover {
+  background: #0056b3;
+}
+
+.debug-info {
+  margin-top: 15px;
+  padding: 15px;
+  background: #fff3cd;
+  border-radius: 5px;
+}
+
+.debug-info h4 {
+  margin-top: 0;
+  color: #856404;
+}
+
+.debug-info ul {
+  margin-bottom: 0;
+}
+
+.debug-info li {
+  margin: 5px 0;
+  color: #856404;
+}
+
+.success-info pre {
+  background: #e9ecef;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #666;
+  font-style: italic;
+}

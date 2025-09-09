@@ -1,0 +1,76 @@
+<div class="create-post-container">
+  <div class="create-post-card">
+    <div class="create-post-header">
+      <img [src]="currentUser?.profilePicture || 'assets/default-avatar.png'" 
+           alt="Your profile" class="user-avatar">
+      <div class="user-info">
+        <h4>{{ currentUser?.firstName }} {{ currentUser?.lastName }}</h4>
+        <span class="username">@{{ currentUser?.username }}</span>
+      </div>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #postForm="ngForm">
+      <div class="form-group">
+        <textarea
+          [(ngModel)]="newPost.content"
+          name="content"
+          placeholder="What's on your mind, {{ currentUser?.firstName }}?"
+          class="post-textarea"
+          rows="4"
+          maxlength="500"
+          required
+          (focus)="clearMessages()"
+          [disabled]="isCreatingPost"></textarea>
+        <small class="char-count">{{ newPost.content.length }}/500 characters</small>
+      </div>
+
+      <!-- Updated: File upload instead of URL input -->
+      <div class="form-group">
+        <label for="imageFile" class="file-label">
+          <i class="fas fa-image"></i>
+          {{ selectedFile ? selectedFile.name : 'Choose an image (optional)' }}
+        </label>
+        <input
+          type="file"
+          id="imageFile"
+          name="imageFile"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          class="file-input"
+          [disabled]="isCreatingPost">
+        
+        <div *ngIf="selectedFile" class="file-info">
+          <small>Selected: {{ selectedFile.name }} ({{ (selectedFile.size / 1024 / 1024).toFixed(2) }} MB)</small>
+          <button type="button" class="remove-file-btn" (click)="selectedFile = null">×</button>
+        </div>
+      </div>
+
+      <!-- Success Message -->
+      <div *ngIf="successMessage" class="success-message">
+        <i class="fas fa-check-circle"></i>
+        <span>{{ successMessage }}</span>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="resetForm()" [disabled]="isCreatingPost">
+          <i class="fas fa-times"></i> Clear
+        </button>
+        
+        <button type="submit" class="post-btn" [disabled]="!isValidForm() || isCreatingPost">
+          <span *ngIf="isCreatingPost">
+            <i class="fas fa-spinner fa-spin"></i> Posting...
+          </span>
+          <span *ngIf="!isCreatingPost">
+            <i class="fas fa-paper-plane"></i> Share Post
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

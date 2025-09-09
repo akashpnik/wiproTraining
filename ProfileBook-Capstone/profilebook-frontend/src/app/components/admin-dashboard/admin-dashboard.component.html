@@ -1,0 +1,125 @@
+<p>admin-dashboard works!</p>
+<div class="admin-dashboard-container">
+  <div class="admin-header">
+    <h2>🛡️ Admin Dashboard</h2>
+    <p>Content Moderation & Management</p>
+  </div>
+
+  <!-- Access Denied Message -->
+  <div *ngIf="errorMessage && errorMessage.includes('Access denied')" class="access-denied">
+    <i class="fas fa-ban"></i>
+    <h3>Access Denied</h3>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <!-- Admin Content -->
+  <div *ngIf="!errorMessage || !errorMessage.includes('Access denied')">
+    <!-- Navigation Tabs -->
+    <div class="admin-tabs">
+      <button class="tab-btn" 
+              [class.active]="activeTab === 'pending'" 
+              (click)="setActiveTab('pending')">
+        <i class="fas fa-clock"></i> Pending Posts ({{ pendingPosts.length }})
+      </button>
+      <button class="tab-btn" 
+              [class.active]="activeTab === 'all'" 
+              (click)="setActiveTab('all')">
+        <i class="fas fa-list"></i> All Posts
+      </button>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading posts...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="errorMessage && !errorMessage.includes('Access denied')" class="error-state">
+      <p>{{ errorMessage }}</p>
+      <button (click)="activeTab === 'pending' ? loadPendingPosts() : loadAllPosts()">
+        Try Again
+      </button>
+    </div>
+
+    <!-- Pending Posts Tab -->
+    <div *ngIf="activeTab === 'pending' && !isLoading" class="posts-section">
+      <div *ngIf="pendingPosts.length === 0" class="empty-state">
+        <i class="fas fa-check-circle"></i>
+        <h3>No pending posts</h3>
+        <p>All posts have been reviewed!</p>
+      </div>
+
+      <div *ngFor="let post of pendingPosts" class="admin-post-card">
+        <!-- Post Header -->
+        <div class="post-header">
+          <div class="user-info">
+            <img [src]="post.user?.userprofilePicture || 'assets/avatar.jpeg'" 
+                 alt="Profile" class="user-avatar">
+            <div class="user-details">
+             <!---- <h4>{{ post.user?.firstName || 'Unknown' }} {{ post.user?.lastName || 'User' }}</h4>-->
+                     
+              <span class="username">@{{ post.username }}</span>
+              <span class="post-date">{{ post.createdAt | date:'medium' }}</span>
+            </div>
+          </div>
+          <div class="post-status pending">
+            <i class="fas fa-clock"></i> PENDING
+          </div>
+        </div>
+
+        <!-- Post Content -->
+        <div class="post-content">
+          <p>{{ post.content }}</p>
+          <img *ngIf="post.postImage" [src]="post.postImage" alt="Post image" class="post-image">
+        </div>
+
+        <!-- Admin Actions -->
+        <div class="admin-actions">
+          <button class="approve-btn" (click)="approvePost(post.postId)">
+            <i class="fas fa-check"></i> Approve
+          </button>
+          <button class="reject-btn" (click)="rejectPost(post.postId)">
+            <i class="fas fa-times"></i> Reject
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Posts Tab -->
+    <div *ngIf="activeTab === 'all' && !isLoading" class="posts-section">
+      <div *ngIf="allPosts.length === 0" class="empty-state">
+        <h3>No posts found</h3>
+      </div>
+
+      <div *ngFor="let post of allPosts" class="admin-post-card">
+        <!-- Similar structure but with different status indicators -->
+        <div class="post-header">
+          <div class="user-info">
+            <img [src]="post.user?.userprofilePicture || 'assets/default-avatar.png'" 
+                 alt="Profile" class="user-avatar">
+            <div class="user-details">
+              <h4>{{ post.user?.firstName || 'Unknown' }} {{ post.user?.lastName || 'User' }}</h4>
+              <span class="username">@{{ post.user?.username || 'user' }}</span>
+              <span class="post-date">{{ post.createdAt | date:'medium' }}</span>
+            </div>
+          </div>
+          <div class="post-status" [ngClass]="post.status?.toLowerCase() || 'pending'">
+            <i class="fas" class="fas fa-clock"></i> 
+           {{ post.status || 'PENDING' }}
+          </div>
+        </div>
+
+        <div class="post-content">
+          <p>{{ post.content }}</p>
+          <img *ngIf="post.postImage" [src]="post.postImage" alt="Post image" class="post-image">
+        </div>
+
+        <div class="post-stats">
+          <span><i class="fas fa-heart"></i> {{ post.likesCount || 0 }} Likes</span>
+          <span><i class="fas fa-comment"></i> {{ post.commentsCount || 0 }} Comments</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

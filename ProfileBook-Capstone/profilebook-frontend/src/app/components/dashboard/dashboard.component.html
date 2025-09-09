@@ -1,0 +1,48 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>🏠 ProfileBook</h1>
+    <nav class="main-nav">
+      <button class="nav-btn" [class.active]="activeTab === 'feed'" (click)="setActiveTab('feed')">
+        <i class="fas fa-home"></i> Feed
+      </button>
+      <button class="nav-btn" [class.active]="activeTab === 'profile'" (click)="setActiveTab('profile')">
+        <i class="fas fa-user"></i> Profile
+      </button>
+      <!-- Add Admin Tab for Admin Users -->
+      <button *ngIf="isAdmin" class="nav-btn admin-btn" [class.active]="activeTab === 'admin'" (click)="setActiveTab('admin')">
+        <i class="fas fa-shield-alt"></i> Admin
+      </button>
+    </nav>
+    <div class="user-info">
+      <span>Hello, {{ currentUser?.firstName }}!</span>
+      <span *ngIf="isAdmin" class="admin-badge">ADMIN</span>
+      <button class="logout-btn" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <!-- Posts Feed Tab -->
+    <div *ngIf="activeTab === 'feed'" class="tab-content">
+      <app-posts></app-posts>
+    </div>
+
+    <!-- Profile Tab -->
+    <div *ngIf="activeTab === 'profile'" class="tab-content">
+      <div class="profile-placeholder">
+        <h2>👤 User Profile</h2>
+        <p>Profile management coming in next steps!</p>
+        <span>Name: <b>{{ currentUser?.username }}!</b></span><br/><br/>
+        <span>Role: {{ currentUser?.role }}!</span><br/><br/>
+        <span>Email of {{ currentUser?.username }} is : {{ currentUser?.email }}!</span>
+
+      </div>
+    </div>
+
+    <!-- Admin Tab -->
+    <div *ngIf="activeTab === 'admin' && isAdmin" class="tab-content">
+      <app-admin-dashboard></app-admin-dashboard>
+    </div>
+  </main>
+</div>

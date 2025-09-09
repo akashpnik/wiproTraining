@@ -1,0 +1,120 @@
+<p>user-profile works!</p>
+<div class="profile-container"> 
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading profile...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage" class="error-state">
+    <p>{{ errorMessage }}</p>
+    <button (click)="ngOnInit()">Try Again</button>
+  </div>
+
+  <!-- Profile Content -->
+  <div *ngIf="!isLoading && !errorMessage && userProfile" class="profile-content">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-banner">
+        <div class="profile-info">
+          <div class="profile-avatar">
+            <img [src]="userProfile.profilePicture || 'assets/default-avatar.png'" 
+                 alt="Profile Picture" 
+                 class="avatar-large">
+          </div>
+          
+          <div class="profile-details">
+            <h1 class="profile-name">
+              {{ userProfile.firstName }} {{ userProfile.lastName }}
+            </h1>
+            <p class="profile-username">@{{ userProfile.username }}</p>
+            <p class="profile-bio" *ngIf="userProfile.bio">{{ userProfile.bio }}</p>
+            
+            <div class="profile-stats">
+              <div class="stat-item">
+                <span class="stat-number">{{ userProfile.postsCount || 0 }}</span>
+                <span class="stat-label">Posts</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">{{ userProfile.dateJoined | date:'mediumDate' }}</span>
+                <span class="stat-label">Joined</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="profile-actions" *ngIf="isOwnProfile">
+            <button class="edit-profile-btn" (click)="editProfile()">
+              <i class="fas fa-edit"></i> Edit Profile
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Navigation -->
+    <div class="profile-nav">
+      <button class="nav-tab" 
+              [class.active]="activeTab === 'posts'"
+              (click)="setActiveTab('posts')">
+        Posts
+      </button>
+      <button class="nav-tab" 
+              [class.active]="activeTab === 'about'"
+              (click)="setActiveTab('about')">
+        About
+      </button>
+    </div>
+
+    <!-- Profile Content Tabs -->
+    <div class="profile-tabs-content">
+      <!-- Posts Tab -->
+      <div *ngIf="activeTab === 'posts'" class="posts-tab">
+        <div *ngIf="userPosts.length === 0" class="empty-posts">
+          <i class="fas fa-file-alt"></i>
+          <h3>No posts yet</h3>
+          <p *ngIf="isOwnProfile">Share your first post!</p>
+          <p *ngIf="!isOwnProfile">{{ userProfile.firstName }} hasn't posted anything yet.</p>
+        </div>
+
+        <!-- User Posts List -->
+        <div *ngFor="let post of userPosts" class="post-card">
+          <div class="post-header">
+            <span class="post-date">{{ post.createdAt | date:'medium' }}</span>
+          </div>
+          <div class="post-content">
+            <p>{{ post.content }}</p>
+            <img *ngIf="post" [src]="post.postImage" alt="Post image" class="post-image">
+          </div>
+          <div class="post-stats">
+            <span><i class="fas fa-heart"></i> {{ post.likesCount || 0 }}</span>
+            <span><i class="fas fa-comment"></i> {{ post.commentsCount || 0 }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Tab -->
+      <div *ngIf="activeTab === 'about'" class="about-tab">
+        <div class="about-section">
+          <h3>About {{ userProfile.firstName }}</h3>
+          <div class="about-item">
+            <strong>Full Name:</strong> {{ userProfile.firstName }} {{ userProfile.lastName }}
+          </div>
+          <div class="about-item">
+            <strong>Username:</strong> @{{ userProfile.username }}
+          </div>
+          <div class="about-item" *ngIf="userProfile.bio">
+            <strong>Bio:</strong> {{ userProfile.bio }}
+          </div>
+          <div class="about-item">
+            <strong>Member Since:</strong> {{ userProfile.dateJoined | date:'fullDate' }}
+          </div>
+          <div class="about-item">
+            <strong>Role:</strong> {{ userProfile.role }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+*/

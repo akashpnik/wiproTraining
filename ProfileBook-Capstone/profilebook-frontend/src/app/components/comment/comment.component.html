@@ -1,0 +1,88 @@
+<p>comment works!</p>
+<div class="comments-container">
+  <!-- Add Comment Form -->
+  <div class="add-comment-form" *ngIf="currentUser">
+    <div class="comment-input-wrapper">
+      <img [src]="currentUser?.profilePicture || 'assets/default-avatar.png'" 
+           alt="Your profile" class="comment-avatar">
+      <div class="comment-input-container">
+        <textarea
+          [(ngModel)]="newComment"
+          placeholder="Write a comment..."
+          class="comment-input"
+          rows="2"
+          maxlength="500"
+          (keypress)="onKeyPress($event)"
+          [disabled]="isSubmitting"></textarea>
+        <div class="comment-actions">
+          <small class="char-count">{{ newComment.length }}/500</small>
+          <button 
+            class="comment-submit-btn" 
+            (click)="addComment()"
+            [disabled]="!newComment.trim() || isSubmitting">
+            <span *ngIf="isSubmitting">
+              <i class="fas fa-spinner fa-spin"></i> Posting...
+            </span>
+            <span *ngIf="!isSubmitting">
+              <i class="fas fa-paper-plane"></i> Comment
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Prompt for Non-authenticated Users -->
+  <div class="login-prompt" *ngIf="!currentUser">
+    <p><i class="fas fa-sign-in-alt"></i> Please login to comment on this post</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    <i class="fas fa-exclamation-triangle"></i>
+    <span>{{ errorMessage }}</span>
+  </div>
+
+  <!-- Loading Comments -->
+  <div *ngIf="isLoading" class="loading-comments">
+    <div class="comment-skeleton" *ngFor="let i of [1,2]">
+      <div class="skeleton-avatar"></div>
+      <div class="skeleton-content">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line short"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments List -->
+  <div class="comments-list" *ngIf="!isLoading">
+    <!-- No Comments Message -->
+    <div *ngIf="comments.length === 0" class="no-comments">
+      <i class="fas fa-comment-slash"></i>
+      <p>No comments yet. Be the first to comment!</p>
+    </div>
+
+    <!-- Comment Items -->
+    <div *ngFor="let comment of comments" class="comment-item">
+      <div class="comment-header">
+        <img [src]="comment.user?.profilePicture || 'assets/default-avatar.png'" 
+             alt="Profile" class="comment-avatar">
+        <div class="comment-meta">
+          <div class="comment-author">
+            <strong>{{ comment.user?.firstName }} {{ comment.user?.lastName }}</strong>
+            <span class="comment-username">@{{ comment.user?.username }}</span>
+          </div>
+          <div class="comment-date">{{ comment.createdAt | date:'short' }}</div>
+        </div>
+      </div>
+      <div class="comment-content">
+        <p>{{ comment.commentText }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments Count Summary -->
+  <div class="comments-summary" *ngIf="comments.length > 0">
+    <span>{{ comments.length }} comment{{ comments.length === 1 ? '' : 's' }}</span>
+  </div>
+</div>
