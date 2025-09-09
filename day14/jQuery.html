@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Display</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+        }
+        
+        #app-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-bottom: 1.5rem;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #employee-info {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            text-align: left;
+        }
+        
+        #employee-info.visible {
+            opacity: 1;
+        }
+        
+        .employee-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .employee-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .employee-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        
+        .detail-item {
+            padding: 0.25rem 0;
+        }
+        
+        .label {
+            font-weight: bold;
+        }
+        
+        .loading {
+            color: #007bff;
+            font-style: italic;
+        }
+        
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <h1>Employee Data Display</h1>
+        <button id="fetch-employees-btn">Load Employee Data 👥</button>
+        <div id="employee-info"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Get references to the button and the div where employee info will be displayed
+            const $fetchButton = $('#fetch-employees-btn');
+            const $employeeInfoDiv = $('#employee-info');
+
+            // Define the asynchronous function to fetch and display employee data
+            const getEmployeeData = async () => {
+                const apiUrl = 'https://dummy.restapiexample.com/api/v1/employees';
+
+                // Show loading message
+                $employeeInfoDiv.html('<p class="loading">Loading employee data...</p>');
+                $employeeInfoDiv.addClass('visible');
+
+                try {
+                    // Use jQuery's $.ajax method to fetch data
+                    const response = await $.ajax({
+                        url: apiUrl,
+                        method: 'GET',
+                        dataType: 'json'
+                    });
+
+                    // Check if the response is successful
+                    if (response.status === 'success' && response.data) {
+                        console.log("Successfully retrieved data:");
+                        console.log(response);
+                        
+                        // Call the function to display the employee data
+                        displayEmployees(response.data);
+                    } else {
+                        throw new Error('Invalid response format');
+                    }
+
+                } catch (error) {
+                    // If an error occurs, log it to the console and show an error message
+                    console.error('Could not fetch data:', error);
+                    $employeeInfoDiv.html('<p class="error">Sorry, couldn\'t load employee data. Please try again.</p>');
+                    $employeeInfoDiv.addClass('visible');
+                }
+            };
+
+            // Function to render the employee data into the HTML
+            const displayEmployees = (employees) => {
+                let employeesHtml = '<h2>Employee List</h2>';
+                
+                // Loop through each employee and create a card
+                employees.forEach(employee => {
+                    employeesHtml += `
+                        <div class="employee-card">
+                            <div class="employee-name">${employee.employee_name}</div>
+                            <div class="employee-details">
+                                <div class="detail-item">
+                                    <span class="label">ID:</span> ${employee.id}
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Age:</span> ${employee.employee_age} years
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Salary:</span> $${employee.employee_salary.toLocaleString()}
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Annual Salary:</span> $${(employee.employee_salary * 12).toLocaleString()}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Set the inner HTML of our container div to the newly created content
+                $employeeInfoDiv.html(employeesHtml);
+                // Add a 'visible' class to fade in the new content
+                $employeeInfoDiv.addClass('visible');
+            };
+
+            // Add a click event listener to the button using jQuery
+            $fetchButton.on('click', getEmployeeData);
+        });
+    </script>
+</body>
+</html>
