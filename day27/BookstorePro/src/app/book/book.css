@@ -1,0 +1,53 @@
+.book-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+h3 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #7f8c8d;
+  margin-right: 10px;
+}
+
+.discounted-price {
+  color: #e74c3c;
+  font-size: 1.2em;
+}
+
+.discount-tag {
+  background-color: #e74c3c;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  margin-left: 10px;
+}
+
+.publication-date {
+  color: #7f8c8d;
+  font-size: 0.9em;
+}
+
+.description {
+  color: #34495e;
+  line-height: 1.4;
+}

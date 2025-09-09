@@ -1,0 +1,35 @@
+<p>dashboard works!</p>
+<div class="dashboard">
+  <h2>ShopEase Dashboard</h2>
+  
+  <div class="container">
+    <div class="product-list">
+      <h3>Products</h3>
+      <div 
+        *ngFor="let product of products" 
+        class="product-item" 
+        (click)="onProductSelect(product)"
+        [class.selected]="selectedProduct?.id === product.id">
+        <span class="name">{{ product.name }}</span>
+        <span class="price">Rs.{{ product.price }}</span>
+      </div>
+    </div>
+
+    <div class="product-details">
+      <app-product-details 
+        *ngIf="selectedProduct"
+        [product]="selectedProduct"
+        (feedback)="onFeedbackReceived($event)">
+      </app-product-details>
+    </div>
+  </div>
+
+  <div class="feedback-section" *ngIf="feedbackList.length > 0">
+    <h3>Feedback Received</h3>
+    <div *ngFor="let feedback of feedbackList" class="feedback-item">
+      <p>Product ID: {{ feedback.productId }}</p>
+      <p>Rating: {{ feedback.rating }}/5</p>
+      <p *ngIf="feedback.comment">Comment: {{ feedback.comment }}</p>
+    </div>
+  </div>
+</div>

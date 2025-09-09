@@ -1,0 +1,11 @@
+<p>book works!</p>
+<div class="book-card">
+  <h3>{{ book.title | uppercase }}</h3>
+  <p class="price">
+    <span class="original-price">{{ book.price | currency:'INR' }}</span>
+    <span class="discounted-price">{{ book.price | discount:15 | currency:'INR' }}</span>
+    <span class="discount-tag">15% OFF</span>
+  </p>
+  <p class="publication-date">Published: {{ book.publicationDate | date:'mediumDate' }}</p>
+  <p class="description">{{ book.description | slice:0:50 }}...</p>
+</div>

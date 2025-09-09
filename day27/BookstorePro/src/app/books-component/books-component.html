@@ -1,0 +1,18 @@
+<p>books-component works!</p>
+<div class="books-container">
+  <h2>BookStore Pro</h2>
+  
+  <div class="section">
+    <h3>Manual Subscription (with cleanup)</h3>
+    <div class="books-grid">
+      <app-book *ngFor="let book of booksManual" [book]="book"></app-book>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Async Pipe Usage</h3>
+    <div class="books-grid">
+      <app-book *ngFor="let book of booksAsync$ | async" [book]="book"></app-book>
+    </div>
+  </div>
+</div>
