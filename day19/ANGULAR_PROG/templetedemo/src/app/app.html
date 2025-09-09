@@ -1,0 +1,46 @@
+<h3>Diff binding types in angular</h3>
+
+<p>Interpolation</p>
+<h5>
+    Additiom of 3 and 5 with
+    Interpolation is {{3+5}}
+</h5>
+<h5>
+    Additiom of 3 and 5 with
+    Interpolation is 3+5
+</h5>
+
+<!-- <p>Welcome {{name}}</p>
+<p>Your  age is {{age}}</p>
+
+<p>Company is {{company}}</p> -->
+
+
+<p> Property Binding: </p>
+<input typpe ="text" [value] = "name" />
+<input type="text" [value] = "age" />
+
+<h5>
+    Title is {{title1}}
+</h5>
+ <h5>
+    Learning Properly binding on {{classtype}}
+</h5>
+ 
+
+<p>property binding </p>
+<button [style.height.px]="btnheight" [style.width.px]="btnwidth">Click Me</button>
+<p>===============================================================</p>
+<p>Event Binding</p>
+<button (click)="addProduct()">Add Product</button>
+<p>===============================================================</p>
+<p>Two-way Binding</p>
+
+<input [value]="firstname" (input)="firstname = $event.target.value" />
+<p>Welcome, {{ firstname }}!</p>
+<p>===============================================================</p>
+
+<p>===================================</p>
+<!-- <p> with using ngmodel</p>
+<input type="text" [(ngModel)]="firstname" />
+<p>Welcome, {{ firstname }}!</p> -->
