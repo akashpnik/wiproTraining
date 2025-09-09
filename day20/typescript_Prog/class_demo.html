@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    class Trainer
+    {
+        name:string;
+        experience: numbere;
+
+        //constructor to initialize properties
+        constructor(name:string,experience:number){
+            this.name = name;
+            this.experience = experience;
+        }
+    }
+
+    //Method to display trainer details
+    introduce(): void{
+        console.log(`He is ${this.name} and his roll no. is ${this.experience year of experience.`});
+
+    }
+
+    //method with return type
+    calculateSession(): number{
+        return this.experience * 75;
+
+    }
+}
+const mausam = new Trainer("Mausam",230);
+mausam.introduce();  //Output: He is mausam and his roll no. is 230.
+console.log(mausam.calculateSession()); //output:1200
+
+</body>
+</html>
