@@ -1,0 +1,105 @@
+@{
+    ViewData["Title"] = "Books";
+}
+<h2 class="mb-3">Books</h2>
+
+<div class="row g-2 mb-3">
+  <div class="col-sm-3"><input id="q" class="form-control" placeholder="Search title/author/genre" /></div>
+  <div class="col-sm-2">
+    <select id="sort" class="form-select">
+      <option value="Title">Title</option>
+      <option value="Author">Author</option>
+      <option value="Genre">Genre</option>
+      <option value="Price">Price</option>
+      <option value="PublishedOn">Published On</option>
+    </select>
+  </div>
+  <div class="col-sm-2">
+    <select id="pageSize" class="form-select">
+      <option>5</option><option selected>10</option><option>20</option>
+    </select>
+  </div>
+  <div class="col-sm-2">
+    <button id="btnAdd" class="btn btn-primary w-100">+ Add Book</button>
+  </div>
+</div>
+
+<div id="tableHost" class="table-responsive border rounded p-2">Loading...</div>
+<nav class="mt-2">
+  <ul id="pager" class="pagination pagination-sm"></ul>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="bookModal" tabindex="-1"><div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Book</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body" id="modalBody">Loading...</div>
+  </div>
+</div></div>
+
+@section Scripts {
+<script>
+let page=1, desc=false;
+async function loadTable(){
+  const qs = new URLSearchParams({
+    search: document.getElementById('q').value,
+    sortBy: document.getElementById('sort').value,
+    desc: desc,
+    page: page,
+    pageSize: document.getElementById('pageSize').value
+  });
+  const res = await fetch('/Books/List?'+qs.toString());
+  document.getElementById('tableHost').innerHTML = await res.text();
+  wireRowButtons();
+}
+function renderPager(total, page, pageSize){
+  const pages = Math.max(1, Math.ceil(total/pageSize));
+  const ul = document.getElementById('pager'); ul.innerHTML='';
+  for(let i=1;i<=pages;i++){
+    const li = document.createElement('li');
+    li.className='page-item'+(i===page?' active':'');
+    li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+    li.onclick=e=>{e.preventDefault(); window.page=i; loadTable();};
+    ul.appendChild(li);
+  }
+}
+async function openForm(id){
+  const res = await fetch('/Books/Form'+(id?('?id='+id):''));
+  document.getElementById('modalBody').innerHTML = await res.text();
+  new bootstrap.Modal(document.getElementById('bookModal')).show();
+}
+async function saveForm(){
+  const form = document.querySelector('#bookForm');
+  const payload = Object.fromEntries(new FormData(form).entries());
+  payload.Price = parseFloat(payload.Price||0);
+  payload.AuthorId = parseInt(payload.AuthorId||0);
+  payload.GenreId  = parseInt(payload.GenreId||0);
+  payload.Id = parseInt(payload.Id||0);
+  const method = payload.Id>0 ? 'PUT' : 'POST';
+  const url = payload.Id>0 ? '/Books/UpdateAjax' : '/Books/CreateAjax';
+  const res = await fetch(url, { method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+  const j = await res.json();
+  if(j.ok){ bootstrap.Modal.getInstance(document.getElementById('bookModal')).hide(); loadTable(); }
+  else alert(j.error||'Save failed');
+}
+async function deleteRow(id){
+  if(!confirm('Delete this book?')) return;
+  const res = await fetch('/Books/DeleteAjax?id='+id, { method:'DELETE' });
+  const j = await res.json();
+  if(j.ok) loadTable(); else alert(j.error||'Delete failed');
+}
+function wireRowButtons(){
+  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>openForm(b.dataset.edit));
+  document.querySelectorAll('[data-delete]').forEach(b=>b.onclick=()=>deleteRow(b.dataset.delete));
+  // pager data from hidden fields (set in partial)
+  const meta = document.getElementById('meta');
+  if(meta) renderPager(+meta.dataset.total, +meta.dataset.page, +meta.dataset.pagesize);
+}
+document.getElementById('btnAdd').onclick=()=>openForm(null);
+document.getElementById('q').oninput=()=>{page=1;loadTable();};
+document.getElementById('sort').onchange=()=>{page=1;loadTable();};
+document.getElementById('pageSize').onchange=()=>{page=1;loadTable();};
+loadTable();
+</script>
+}

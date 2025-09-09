@@ -1,0 +1,38 @@
+@model Book
+@{
+    var authors = (IReadOnlyList<Author>)ViewBag.Authors;
+    var genres  = (IReadOnlyList<Genre>)ViewBag.Genres;
+}
+<form id="bookForm" onsubmit="event.preventDefault(); saveForm();">
+  <input type="hidden" name="Id" value="@Model.Id" />
+  <div class="mb-2">
+    <label class="form-label">Title</label>
+    <input class="form-control" name="Title" value="@Model.Title" required maxlength="160" />
+  </div>
+  <div class="mb-2">
+    <label class="form-label">Author</label>
+    <select class="form-select" name="AuthorId" required>
+      <option value="">--select--</option>
+      @foreach (var a in authors) { <option value="@a.Id" selected="@(a.Id==Model.AuthorId)">@a.Name</option> }
+    </select>
+  </div>
+  <div class="mb-2">
+    <label class="form-label">Genre</label>
+    <select class="form-select" name="GenreId" required>
+      <option value="">--select--</option>
+      @foreach (var g in genres) { <option value="@g.Id" selected="@(g.Id==Model.GenreId)">@g.Name</option> }
+    </select>
+  </div>
+  <div class="mb-2">
+    <label class="form-label">Price</label>
+    <input type="number" step="0.01" class="form-control" name="Price" value="@(Model.Price==0? "": Model.Price.ToString())" />
+  </div>
+  <div class="mb-2">
+    <label class="form-label">Published On</label>
+    <input type="date" class="form-control" name="PublishedOn" value="@(Model.PublishedOn?.ToString("yyyy-MM-dd"))" />
+  </div>
+  <div class="text-end">
+    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
+    <button class="btn btn-primary" type="submit">Save</button>
+  </div>
+</form>
